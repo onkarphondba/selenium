@@ -13,7 +13,7 @@ public class PetClinicTest {
 	private WebDriver driver;
   @BeforeTest
    public void beforeTest() {
-	System.setProperty("webdriver.chrome.driver", "C:\\Tools\\chromedriver_win32\\chromedriver.exe");  
+	System.setProperty("webdriver.chrome.driver", "//home//ec2-user//chromedriver.exe");  
 	driver = new ChromeDriver(); 
   }
   @Test
