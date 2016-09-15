@@ -17,8 +17,10 @@ public class PetClinicTest {
    @BeforeTest
    public void beforeTest() {
 	
-   //setup with gecko driver	   
-   System.setProperty("webdriver.gecko.driver", "/var/lib/jenkins/workspace/Petclininc/geckodriver"); 
+   //setup with gecko driver
+   System.setProperty("webdriver.gecko.driver", "C:/Program Files (x86)/Jenkins/workspace/Petclininc/geckodriver");   
+	  
+   //System.setProperty("webdriver.gecko.driver", "/var/lib/jenkins/workspace/Petclininc/geckodriver"); 
    driver = new FirefoxDriver(); 
 
 
