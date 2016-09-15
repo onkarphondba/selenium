@@ -1,15 +1,17 @@
 package Sample;
-import org.openqa.selenium.By;
+import java.net.MalformedURLException;
+import java.net.URL;
+
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.annotations.BeforeTest;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.Test;
 
 public class PetClinicTest {
-	//public WebDriver driver;
+	public WebDriver driver;
+	
+
+    //public ThreadLocal<RemoteWebDriver> threadDriver = null;
  
 //	@BeforeTest
 //   public void beforeTest() {
@@ -23,17 +25,29 @@ public class PetClinicTest {
 //  }
   
 	@Test
-  public void testEasy() throws InterruptedException
+  public void testEasy() throws InterruptedException, MalformedURLException
+  
   {   
-		Selenium driver = new DefaultSelenium("52.89.250.172", 4444, "*firefox", "http://my.test.site.org/");
+		DesiredCapabilities capability = DesiredCapabilities.firefox();
+		driver = new RemoteWebDriver(new URL("http://192.168.1.101:4445//wd/hub"), capability);
+		driver.navigate().to("https://github.com/");
+		
+		//threadDriver = new ThreadLocal<RemoteWebDriver>();
+//        DesiredCapabilities dc = new DesiredCapabilities();
+//        FirefoxProfile fp = new FirefoxProfile();
+//        dc.setCapability(FirefoxDriver.PROFILE, fp);
+//        dc.setBrowserName(DesiredCapabilities.firefox().getBrowserName());
+//        threadDriver.set(new RemoteWebDriver(new URL("http://192.168.1.101:4445//wd/hub"), dc));
+		
+		//WebDriver driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capability);
 		//System.setProperty("webdriver.gecko.driver", "/var/lib/jenkins/workspace/Petclininc/geckodriver"); 
 		//WebDriver driver =new FirefoxDriver();
 		//driver.navigate().to("http://192.168.99.1:8084/petclinic/");
 	  	//driver.get("http://localhost:8084/petclinic/");  
 	  	//WebDriverWait wait = new WebDriverWait(driver, 20);
 		//wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("html/body/div[1]/div[@class='container xd-container']/h2")));
-		 driver.manage().window().maximize();	
-	  	Thread.sleep(2000);
+		 //driver.manage().window().maximize();	
+	  	//Thread.sleep(2000);
 	  	/*String title = driver.getTitle();   
         System.out.println("Home Page Header : "+title);
         
